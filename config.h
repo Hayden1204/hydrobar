@@ -65,7 +65,7 @@ static const char unknown_str[] = "N/A";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ ipv4,              "[ %s] ",     "enp2s0" },
+	{ ipv4,              " [ %s] ",    "enp2s0" },
 	/*{ wifi_perc,         "(%s%%)] ",    "enp2s0" },
 	{ run_command,       "[ %s%%] ",   "scrbr=\"$(cat /sys/class/backlight/intel_backlight/brightness)\"; echo \"$(( scrbr * 100 / 19200))\"" },*/
 	{ run_command,       "[ %s] ",     "pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}'" },
