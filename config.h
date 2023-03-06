@@ -65,20 +65,21 @@ static const char unknown_str[] = "N/A";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ ipv4,              " [ %s] ",    "enp2s0" },
-	/*{ wifi_perc,         "(%s%%)] ",    "enp2s0" },
-	{ run_command,       "[ %s%%] ",   "scrbr=\"$(cat /sys/class/backlight/intel_backlight/brightness)\"; echo \"$(( scrbr * 100 / 19200))\"" },*/
-	{ run_command,       "[ %s] ",     "pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}'" },
-	/*{ battery_perc,      "[ %s%%",     "BAT1" },
-	{ battery_state,     "%s] ",        "BAT1" },*/
-	{ datetime,          "%s",          "[ %a, %d %b %Y  %H:%M:%S];" },
+	{ ipv4,              " [WIFI %s ",     "wlp0s20f3" },
+	{ wifi_perc,         "(%s%%)] ",       "wlp0s20f3" },
+	{ run_command,       "[BR %s%%] ",     "scrbr=\"$(cat /sys/class/backlight/intel_backlight/brightness)\"; echo \"$(( scrbr * 100 / 19200))\"" },
+	{ run_command,       "[VOL %s] ",      "pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}'" },
+	{ battery_perc,      "[BAT %s%%",      "BAT1" },
+	{ battery_state,     "%s] ",           "BAT1" },
+	{ datetime,          "%s",             "[DATE %a, %d %b %Y TIME %H:%M:%S];" },
 
-	{ temp,              "[ %s°C] ",   "/sys/class/thermal/thermal_zone2/temp" },
-	{ disk_perc,         "[ %s%%] ",   "/home" },
-	{ cpu_perc,          "[ %s%%] ",   NULL },
-	{ ram_perc,          "[ %s%%];",   NULL },
+	{ temp,              "[TEMP %s°C] ",   "/sys/class/thermal/thermal_zone6/temp" },
+	{ disk_perc,         "[ROOT %s%%] ",   "/" },
+	{ disk_perc,         "[HOME %s%%] ",   "/home" },
+	{ cpu_perc,          "[CPU %s%%] ",    NULL },
+	{ ram_perc,          "[RAM %s%%];",    NULL },
 
-	{ kernel_release,    "[ %s] ",     NULL },
-	{ username,          "[ %s@",      NULL },
-	{ hostname,          "%s]",         NULL },
+	{ kernel_release,    "[KERNEL %s] ",   NULL },
+	{ username,          "[PC %s@",        NULL },
+	{ hostname,          "%s]",            NULL },
 };
