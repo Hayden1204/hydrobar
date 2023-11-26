@@ -65,21 +65,21 @@ static const char unknown_str[] = "N/A";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ ipv4,              " [WIFI %s ",     "wlp0s20f3" },
-	{ wifi_perc,         "(%s%%)] ",       "wlp0s20f3" },
-	{ run_command,       "[BR %s%%] ",     "scrbr=\"$(cat /sys/class/backlight/intel_backlight/brightness)\"; echo \"$(( scrbr * 100 / 19200))\"" },
-	{ run_command,       "[VOL %s] ",      "pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}'" },
-	{ battery_perc,      "[BAT %s%%",      "BAT1" },
-	{ battery_state,     "%s] ",           "BAT1" },
-	{ datetime,          "%s",             "[DATE %a, %d %b %Y] [TIME %T];" },
+	{ ipv4,              " wifi: %s ",     "wlp0s20f3" },
+	{ wifi_perc,         "(%s%%)  ",       "wlp0s20f3" },
+	{ run_command,       "br: %s%%  ",     "scrbr=\"$(cat /sys/class/backlight/intel_backlight/brightness)\"; echo \"$(( scrbr * 100 / 19200))\"" },
+	{ run_command,       "volume: %s  ",      "pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}'" },
+	{ battery_perc,      "battery: %s%%",      "BAT1" },
+	{ battery_state,     "%s  ",           "BAT1" },
+	{ datetime,          "%s",             "date: %a, %d %b %Y  time: %T ;" },
 
-	{ temp,              "[TEMP %s°C] ",   "/sys/class/thermal/thermal_zone5/temp" },
-	{ disk_perc,         "[ROOT %s%%] ",   "/" },
-	{ disk_perc,         "[HOME %s%%] ",   "/home" },
-	{ cpu_perc,          "[CPU %s%%] ",    NULL },
-	{ ram_perc,          "[RAM %s%%];",    NULL },
+	{ cpu_perc,          " CPU: %s%%  ",    NULL },
+	{ ram_perc,          "RAM: %s%%  ",    NULL },
+	{ disk_perc,         "root: %s%%  ",   "/" },
+	{ disk_perc,         "home: %s%%  ",   "/home" },
+	{ temp,              "temp: %s°C;",   "/sys/class/thermal/thermal_zone5/temp" },
 
-	{ kernel_release,    "[KERNEL %s] ",   NULL },
-	{ username,          "[PC %s@",        NULL },
-	{ hostname,          "%s]",            NULL },
+	{ kernel_release,    "kernel: %s  ",   NULL },
+	{ username,          "host: %s@",        NULL },
+	{ hostname,          "%s ",            NULL },
 };
